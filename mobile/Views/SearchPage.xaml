@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile.Views.SearchPage"
+             Title="Search Courses by Instructor">
+    <ScrollView>
+    <Grid RowDefinitions="*, Auto" Padding="20">
+
+        <!-- Middle Section: Search Entry and Results -->
+        <StackLayout Grid.Row="0" Spacing="10">
+            <!-- Search Entry -->
+            <Entry x:Name="SearchEntry"
+                   Placeholder="Enter instructor name"
+                   FontSize="16"
+                   HorizontalOptions="FillAndExpand" />
+
+            <!-- Search Results -->
+            <CollectionView x:Name="SearchResultsCollectionView" IsVisible="False">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#CCCCCC" CornerRadius="10" Padding="10" Margin="0,5">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding InstructorName}" FontSize="16" TextColor="Gray" />
+                                <Label Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" />
+                                <Label Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- No Results Message -->
+            <Label x:Name="NoResultsLabel"
+                   Text="No courses found."
+                   FontSize="16"
+                   TextColor="Red"
+                   HorizontalOptions="Center"
+                   IsVisible="False" />
+        </StackLayout>
+
+        <!-- Bottom Section: Buttons -->
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="20" HorizontalOptions="Fill" Padding="10,0">
+            <Button Text="Back"
+            Clicked="OnBackButtonClicked"
+            FontSize="18"
+            CornerRadius="10"
+            HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Search"
+            Clicked="OnSearchButtonClicked"
+            FontSize="18"
+            CornerRadius="10"
+            HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+
+    </Grid>
+    </ScrollView>
+</ContentPage>

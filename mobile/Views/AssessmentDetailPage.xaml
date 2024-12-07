@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile.Views.AssessmentDetailPage"
+             Title="AssessmentDetailPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Assessment Details" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <Entry x:Name="AssessmentTitleEntry"
+                   Placeholder="Enter assessment title"
+                   FontSize="18" />
+
+            <Label Text="Select Start Date" FontSize="18" />
+            <DatePicker x:Name="StartDatePicker" FontSize="18" />
+
+           
+            <Label Text="Select End Date" FontSize="18" />
+            <DatePicker x:Name="EndDatePicker" FontSize="18" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Enable Notifications" FontSize="18" VerticalOptions="Center" />
+                <CheckBox x:Name="NotificationCheckBox" IsChecked="false" />
+            </HorizontalStackLayout>
+
+            <Button Text="Save Assessment"
+                    Clicked="OnSaveButtonClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Delete Assessment"
+                    Clicked="OnDeleteButtonClicked"
+                    HorizontalOptions="Fill" />
+
+            <Button Text="Back"
+                    Clicked="OnBackButtonClicked"
+                    HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

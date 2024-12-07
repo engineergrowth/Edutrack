@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="mobile.Views.AddCoursePage"
+             Title="Add Course">
+
+    <ContentPage.Content>
+        <ScrollView Padding="10">
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Course Title -->
+                <Label Text="Course Title" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="TitleEntry" Placeholder="Enter course title" Keyboard="Default" />
+
+                <!-- Course Start Date -->
+                <Label Text="Start Date" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <DatePicker x:Name="StartDatePicker" Date="{Binding StartDate}" />
+
+                <!-- Course End Date -->
+                <Label Text="End Date" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <DatePicker x:Name="EndDatePicker" Date="{Binding EndDate}" />
+
+                <!-- Status Dropdown -->
+                <Label Text="Course Status" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Picker x:Name="StatusPicker" Title="Select Course Status" />
+
+
+                <!-- Instructor Name -->
+                <Label Text="Instructor Name" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="InstructorNameEntry" Placeholder="Enter instructor's name" />
+
+                <!-- Instructor Email -->
+                <Label Text="Instructor Email" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="InstructorEmailEntry" Placeholder="Enter instructor's email" Keyboard="Email" />
+
+                <!-- Instructor Phone -->
+                <Label Text="Instructor Phone" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="InstructorPhoneEntry" Placeholder="Enter instructor's phone number" Keyboard="Telephone" />
+
+                <!-- Notes -->
+                <Label Text="Course Notes" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                <Editor x:Name="NotesEditor" Placeholder="Enter notes for this course" HeightRequest="100" />
+
+                <HorizontalStackLayout VerticalOptions="CenterAndExpand" Spacing="10">
+                    <CheckBox x:Name="EnableNotificationsCheckBox" IsChecked="False" />
+                    <Label Text="Enable Notifications" FontSize="Medium" VerticalOptions="CenterAndExpand" />
+                </HorizontalStackLayout>
+
+
+                <!-- Buttons -->
+                <StackLayout Orientation="Horizontal" Spacing="20">
+                    <Button Text="Save Course" Clicked="OnSaveCourseClicked" HorizontalOptions="FillAndExpand" />
+                    
+                </StackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

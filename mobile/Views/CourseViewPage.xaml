@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:mobile.Views"
+             x:Class="mobile.Views.CourseViewPage"
+             Title="Course Details"
+             Padding="10">
+
+    <ScrollView>
+        <StackLayout>
+
+            <!-- Course Title -->
+            <Label Text="Course Title" FontSize="Medium" />
+            <Entry x:Name="TitleEntry" Placeholder="Enter course title" TextColor="Black" BackgroundColor="White" />
+
+            <!-- Start Date -->
+            <Label Text="Start Date" FontSize="Medium" />
+            <DatePicker x:Name="StartDatePicker" BackgroundColor="White" />
+
+            <!-- End Date -->
+            <Label Text="End Date" FontSize="Medium" />
+            <DatePicker x:Name="EndDatePicker" BackgroundColor="White" />
+
+            <!-- Status Picker -->
+            <Label Text="Course Status" FontSize="Medium" />
+            <Picker x:Name="StatusPicker" Title="Select Course Status" BackgroundColor="White" SelectedItem="{Binding Status}" />
+
+            <!-- Instructor Info -->
+            <Label Text="Instructor Name" FontSize="Medium" />
+            <Entry x:Name="InstructorNameEntry" Placeholder="Enter instructor's name" BackgroundColor="White" />
+
+            <Label Text="Instructor Email" FontSize="Medium" />
+            <Entry x:Name="InstructorEmailEntry" Placeholder="Enter instructor's email" BackgroundColor="White" Keyboard="Email" />
+
+            <Label Text="Instructor Phone" FontSize="Medium" />
+            <Entry x:Name="InstructorPhoneEntry" Placeholder="Enter instructor's phone" BackgroundColor="White" Keyboard="Telephone" />
+
+            <!-- Course Notes -->
+            <Label Text="Course Notes" FontSize="Medium" />
+            <Editor x:Name="NotesEditor" Placeholder="Enter course notes" BackgroundColor="White" HeightRequest="100" />
+
+            <!-- Enable Notifications Checkbox -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Spacing="10" Margin="0,10">
+                <Label Text="Enable Notifications" FontSize="Medium" VerticalOptions="Center" />
+                <CheckBox x:Name="EnableNotificationsCheckBox" />
+            </StackLayout>
+
+
+            <!-- Assessments Button Row -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,20,0,10">
+                <Button Text="Assessments" Clicked="OnAssessmentsClicked" BackgroundColor="DarkCyan" TextColor="White" WidthRequest="150" />
+            </StackLayout>
+
+            <!-- Save and Cancel Buttons Row -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,10,0,10">
+                <Button Text="Save" Clicked="OnSaveCourseClicked" BackgroundColor="Green" TextColor="White" WidthRequest="150" />
+                <Button Text="Cancel" Clicked="OnCancelButtonClicked" BackgroundColor="Red" TextColor="White" WidthRequest="150" />
+            </StackLayout>
+
+            <!-- Share Notes and Delete Course Buttons Row -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,10,0,20">
+                <Button Text="Share Notes" Clicked="OnShareNotesClicked" BackgroundColor="Blue" TextColor="White" WidthRequest="150" />
+                <Button Text="Delete Course" Clicked="OnDeleteCourseClicked" BackgroundColor="DarkRed" TextColor="White" WidthRequest="150" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

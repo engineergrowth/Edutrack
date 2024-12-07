@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile.Views.TermDetailPage"
+             Title="Term Details">
+    <Grid Padding="10" RowDefinitions="*, Auto">
+   
+        <StackLayout Grid.Row="0">
+            <!-- Term Title -->
+            <Label x:Name="TermTitleLabel"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Term Dates -->
+            <Label x:Name="TermDatesLabel"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+
+            <!-- CollectionView for Courses -->
+            <CollectionView x:Name="CoursesCollectionView"
+                            SelectionMode="Single"
+                            SelectionChanged="OnCourseSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="5">
+                            <Label Text="{Binding Title}"
+                                   TextColor="Blue"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding Status}"
+                                   FontAttributes="Italic"
+                                   HorizontalOptions="End" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+
+        <!-- Navigation Buttons at the Bottom -->
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,10">
+            <Button Text="Back" Clicked="OnBackButtonClicked" />
+            <Button Text="Add Course" Clicked="OnAddCourseButtonClicked" />
+            <Button Text="Search Courses" Clicked="OnSearchButtonClicked" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
